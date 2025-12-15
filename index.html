@@ -5,24 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surat Jalan & Jaminan Pengiriman - PT SiCepat Ekspres Indonesia</title>
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #e74c3c;
-            --accent-color: #3498db;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-            --border-color: #ddd;
-            --text-color: #333;
-            --background-color: #f8f9fa;
-            --watermark-opacity: 0.04;
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            color: var(--text-color);
-            background-color: var(--background-color);
+            color: #333;
+            background-color: #fff;
             line-height: 1.6;
         }
 
@@ -45,7 +33,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: var(--watermark-opacity);
+            opacity: 0.04;
             pointer-events: none;
             z-index: -1;
         }
@@ -53,12 +41,10 @@
         .header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding-bottom: 20px;
+            border-bottom: 2px solid #333;
         }
 
         .logo-left {
@@ -80,37 +66,17 @@
             font-size: 24px;
             font-weight: bold;
             margin: 0 0 10px 0;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .header-title h1 .verified-badge {
-            width: 20px;
-            height: 20px;
-            background-color: var(--accent-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 12px;
-            font-weight: bold;
         }
 
         .header-title h2 {
             font-size: 20px;
             font-weight: normal;
             margin: 0 0 15px 0;
-            color: #7f8c8d;
         }
 
         .header-title p {
             font-size: 16px;
             margin: 0;
-            color: #95a5a6;
         }
 
         .logo-right {
@@ -124,49 +90,34 @@
 
         .tracking-section {
             background-color: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-
-        .tracking-title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .tracking-title img {
-            width: 30px;
-            height: 30px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
 
         .tracking-form {
             display: flex;
             gap: 10px;
-            margin-bottom: 15px;
+            align-items: center;
         }
 
         .tracking-input {
             flex-grow: 1;
-            padding: 10px;
-            border: 1px solid var(--border-color);
+            padding: 8px;
+            border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         .tracking-button {
-            padding: 10px 20px;
-            background-color: var(--secondary-color);
+            padding: 8px 15px;
+            background-color: #e74c3c;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             transition: background-color 0.3s;
         }
 
@@ -175,22 +126,22 @@
         }
 
         .tracking-result {
-            padding: 15px;
-            border: 1px solid var(--border-color);
+            padding: 10px;
+            border: 1px solid #ddd;
             border-radius: 4px;
-            background-color: var(--light-color);
-            margin-top: 15px;
+            background-color: #f8f9fa;
+            margin-top: 10px;
             display: none;
         }
 
         .tracking-result.success {
             display: block;
-            border-left: 4px solid var(--success-color);
+            border-left: 4px solid #27ae60;
             background-color: #eafaf1;
         }
 
         .tracking-result.success h3 {
-            color: var(--success-color);
+            color: #27ae60;
             margin-top: 0;
         }
 
@@ -198,11 +149,8 @@
             position: relative;
             max-width: 900px;
             margin: 0 auto;
-            padding: 40px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
             background-color: #fff;
-            margin-top: 30px;
         }
 
         .section {
@@ -213,7 +161,7 @@
             font-size: 20px;
             font-weight: bold;
             margin-bottom: 15px;
-            color: var(--primary-color);
+            color: #2c3e50;
         }
 
         .info-table {
@@ -294,7 +242,7 @@
         .footer {
             margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid #ddd;
             text-align: center;
             font-size: 14px;
             color: #7f8c8d;
@@ -309,12 +257,10 @@
             .container {
                 padding: 0;
             }
-            .header, .tracking-section {
+            .tracking-section {
                 display: none;
             }
             .document-container {
-                box-shadow: none;
-                border: none;
                 margin: 0;
                 padding: 20mm;
             }
@@ -332,21 +278,17 @@
                 <img src="https://i.ibb.co.com/gMrXmb5v/13c64ce30c396a9dd09550e88d684dd8.jpg" alt="Logo Direktorat Jenderal Pajak">
             </div>
             <div class="header-title">
-                <h1>PT SiCepat Ekspres Indonesia <span class="verified-badge">✓</span></h1>
+                <h1>PT SiCepat Ekspres Indonesia</h1>
                 <h2>Surat Jalan & Jaminan Pengiriman</h2>
                 <p>No. Dokumen: SJJP/EXP/2025/07/001</p>
             </div>
             <div class="logo-right">
-                <img src="https://i.ibb.co.com/Xk3V1zpq/1765769481669.jpg" alt="Logo SiCepat Ekspres">
+                <img src="https://i.ibb.co.com/Y7XzWv3y/IMG-20251215-113145.jpg" alt="Logo SiCepat Ekspres">
             </div>
         </div>
 
         <!-- Interactive Tracking Section -->
         <div class="tracking-section">
-            <div class="tracking-title">
-                <img src="https://i.ibb.co.com/qYQ4bfxK/b3d011ea459bd8e3adb64b399cc19203.jpg" alt="Cek Resi Icon">
-                Cek Status Pengiriman
-            </div>
             <form id="trackingForm" class="tracking-form">
                 <input type="text" id="resiInput" class="tracking-input" placeholder="Masukkan Nomor Resi (contoh: 001776527333)" required>
                 <button type="submit" class="tracking-button">Cek Resi</button>
@@ -369,11 +311,7 @@
                     </tr>
                     <tr>
                         <td>Nama Penerima</td>
-                        <td>: <span style="color: var(--accent-color); font-weight: bold;">Andi M</span></td>
-                    </tr>
-                    <tr>
-                        <td>No. HP</td>
-                        <td>: (+62) 812-6328-5947</td>
+                        <td>: <span style="color: #3498db; font-weight: bold;">Andi M</span></td>
                     </tr>
                     <tr>
                         <td>Alamat Lengkap</td>
@@ -381,7 +319,7 @@
                     </tr>
                     <tr>
                         <td>Jenis Barang</td>
-                        <td>: 16 slop rokok legal</td>
+                        <td>: 20 slop rokok legal</td>
                     </tr>
                     <tr>
                         <td>Pembayaran Barang</td>
@@ -418,15 +356,17 @@
                     <p class="date-label">Tanggal Terbit :</p>
                     <p>Senin, 15 Desember 2025</p>
                     <p class="issuer-label">Diterbitkan oleh :</p>
+                    <!-- Tidak ada logo di bawah "Diterbitkan oleh" -->
                     <p>PT SiCepat Ekspres Indonesia - Kantor Pusat</p>
                     <p>Jl. Akses Ekspedisi No. 123, Jakarta 11740</p>
                 </div>
                 <div class="qr-code-box">
+                    <!-- QR Code baru -->
                     <div style="margin: 10px 0;">
-                        <img src="https://i.ibb.co.com/WvPQDmWS/IMG-0244.jpg" alt="QR Code Pembayaran">
+                        <img src="https://i.ibb.co.com/1YHpJyM4/IMG-20251215-113809.jpg" alt="QR Code Pembayaran">
                     </div>
                     <p>QRIS</p>
-                    <p style="font-size: 10px;">QR Code Standar<br>Pembayaran Nasional</p>
+                    <p style="font-size: 10px;">JAMINAN KURIR<br>SURAT JALAN</p>
                 </div>
             </div>
         </div>
@@ -446,7 +386,7 @@
             const resultStatus = document.getElementById('resultStatus');
             const resultMessage = document.getElementById('resultMessage');
 
-            // Simulasi validasi dan pengecekan resi
+            // validasi dan pengecekan resi
             if (resiInput === '001776527333') {
                 resultStatus.textContent = '✅ VERIFIKASI BERHASIL';
                 resultMessage.innerHTML = `
