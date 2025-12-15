@@ -33,7 +33,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.04;
+            opacity: 0.05;
             pointer-events: none;
             z-index: -1;
         }
@@ -80,7 +80,7 @@
         }
 
         .logo-right {
-            width: 150px; /* Ukuran disamakan dengan logo kiri */
+            width: 150px;
         }
 
         .logo-right img {
@@ -104,14 +104,14 @@
 
         .tracking-input {
             flex-grow: 1;
-            padding: 8px;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 14px;
         }
 
         .tracking-button {
-            padding: 8px 15px;
+            padding: 10px 20px;
             background-color: #e74c3c;
             color: white;
             border: none;
@@ -228,13 +228,40 @@
             justify-content: flex-start;
         }
 
-        .ttd-box img {
+        .ttd-box .stempel {
+            width: 150px;
+            height: auto;
+            margin: 5px 0;
+        }
+
+        .ttd-box .signature {
+            width: 180px;
+            height: auto;
+            margin: 5px 0;
+        }
+
+        .ttd-box p {
+            font-size: 12px;
+            margin: 5px 0;
+        }
+
+        .barcode-box {
+            width: 45%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 20px;
+        }
+
+        .barcode-box img {
             width: 180px;
             height: auto;
             margin: 10px 0;
         }
 
-        .ttd-box p {
+        .barcode-box p {
             font-size: 12px;
             margin: 5px 0;
         }
@@ -319,7 +346,7 @@
                     </tr>
                     <tr>
                         <td>Jenis Barang</td>
-                        <td>: 16 slop rokok legal</td>
+                        <td>: 20 slop rokok legal</td>
                     </tr>
                     <tr>
                         <td>Pembayaran Barang</td>
@@ -356,24 +383,27 @@
                     <p class="date-label">Tanggal Terbit :</p>
                     <p>Senin, 15 Desember 2025</p>
                     <p class="issuer-label">Diterbitkan oleh :</p>
-                    <!-- Tidak ada logo di bawah "Diterbitkan oleh" -->
                     <p>PT SiCepat Ekspres Indonesia - Kantor Pusat</p>
                     <p>Jl. Akses Ekspedisi No. 123, Jakarta 11740</p>
                 </div>
                 <div class="ttd-box">
-                    <!-- Gambar TTD -->
-                    <div style="margin: 10px 0;">
-                        <img src="https://i.ibb.co.com/1YHpJyM4/IMG-20251215-113809.jpg" alt="Tanda Tangan SiCepat Ekspres">
-                    </div>
-                    <p>QRIS</p>
-                    <p style="font-size: 10px;">QR Code Standar<br>Pembayaran Nasional</p>
+                    <!-- Tanda Tangan -->
+                    <img src="https://i.ibb.co.com/ynksxBs2/IMG-20251215-115953.jpg" alt="Tanda Tangan Arif Kurniawan" class="signature">
+                    <p>Arif Kurniawan</p>
+                    <p>NIP. 19870311 201102 1 006</p>
                 </div>
+            </div>
+
+            <!-- Barcode Area -->
+            <div class="barcode-box">
+                <p>Silakan di-scan untuk proses dilanjutkan pengiriman</p>
+                <img src="https://i.ibb.co.com/1YHpJyM4/IMG-20251215-113809.jpg" alt="Barcode Pengiriman">
             </div>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <p>Dokumen ini bersifat resmi dan memiliki kekuatan hukum sebagai bukti pengiriman.</p>
+            <p>©2025 Dokumen ini bersifat resmi dan memiliki kekuatan hukum sebagai bukti pengiriman.</p>
         </div>
     </div>
 
@@ -388,7 +418,7 @@
 
             // validasi dan pengecekan resi
             if (resiInput === '001776527333') {
-                resultStatus.textContent = '✅ VERIFIKASI BERHASIL';
+                resultStatus.textContent = 'VERIFIKASI BERHASIL✓';
                 resultMessage.innerHTML = `
                     <strong>Status:</strong> Transit - Siap Dikirim ke Alamat Tujuan<br>
                     <strong>Keterangan:</strong> Proses Surat Jalan & Jaminan Pengiriman telah diselesaikan. Barang siap untuk dikirim ke alamat penerima: Dusun, 8 Wonosari, Gang Teratai, Desa Klumpang Kebun, Kec. Hamparan Perak, Kab. Deli Serdang, Sumatera Utara, 20374.
@@ -402,4 +432,5 @@
         });
     </script>
 </body>
-</html>  
+</html>
+
