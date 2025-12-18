@@ -1,436 +1,308 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surat Jalan & Jaminan Pengiriman - PT SiCepat Ekspres Indonesia</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #fff;
-            line-height: 1.6;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SiCepat Express - Bukti Pengiriman Resmi</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 20px;
-        }
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: #f9fbfd;
+      color: #333;
+      line-height: 1.5;
+      padding: 20px;
+    }
 
-        /* Watermark Global */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 600px;
-            height: 400px;
-            transform: translate(-50%, -50%);
-            background-image: url('https://i.ibb.co.com/WvPQDmWS/IMG-0244.jpg');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.05;
-            pointer-events: none;
-            z-index: -1;
-        }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-radius: 8px;
+      overflow: hidden;
+    }
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #333;
-        }
+    /* Header — compact & unified */
+    .header {
+      background: #0056B3;
+      color: white;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
 
-        .logo-left {
-            width: 150px;
-        }
+    .logo-img {
+      height: 42px;
+      flex-shrink: 0;
+      border-radius: 4px;
+    }
 
-        .logo-left img {
-            width: 100%;
-            height: auto;
-        }
+    .header-text {
+      flex: 1;
+    }
 
-        .header-title {
-            text-align: center;
-            flex-grow: 1;
-            margin: 0 20px;
-        }
+    .logo-text {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin-bottom: 2px;
+    }
 
-        .header-title h1 {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 0 0 10px 0;
-        }
+    .logo-text span {
+      color: #FFD700;
+    }
 
-        .header-title h2 {
-            font-size: 20px;
-            font-weight: normal;
-            margin: 0 0 15px 0;
-        }
+    .tagline {
+      font-size: 12px;
+      opacity: 0.9;
+    }
 
-        .header-title p {
-            font-size: 16px;
-            margin: 0;
-        }
+    .branch {
+      font-size: 11px;
+      font-weight: 500;
+      margin-top: 2px;
+    }
 
-        .logo-right {
-            width: 150px;
-        }
+    /* Content */
+    .content {
+      padding: 25px 30px;
+    }
 
-        .logo-right img {
-            width: 100%;
-            height: auto;
-        }
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #0056B3;
+      margin: 20px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e0e6ed;
+    }
 
-        .tracking-section {
-            background-color: #fff;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
 
-        .tracking-form {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
 
-        .tracking-input {
-            flex-grow: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
+    th {
+      background-color: #f1f5f9;
+      font-weight: 600;
+      color: #2d3748;
+    }
 
-        .tracking-button {
-            padding: 10px 20px;
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s;
-        }
+    td {
+      border-bottom: 1px solid #e2e8f0;
+    }
 
-        .tracking-button:hover {
-            background-color: #c0392b;
-        }
+    tr:last-child td {
+      border-bottom: none;
+    }
 
-        .tracking-result {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            background-color: #f8f9fa;
-            margin-top: 10px;
-            display: none;
-        }
+    .highlight {
+      background-color: #fff8e6;
+    }
 
-        .tracking-result.success {
-            display: block;
-            border-left: 4px solid #27ae60;
-            background-color: #eafaf1;
-        }
+    .amount {
+      text-align: right;
+      font-family: 'Courier New', monospace;
+      font-weight: 600;
+    }
 
-        .tracking-result.success h3 {
-            color: #27ae60;
-            margin-top: 0;
-        }
+    .note {
+      font-size: 13px;
+      background-color: #f8fafc;
+      border-left: 4px solid #3182ce;
+      padding: 12px 16px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
 
-        .document-container {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 30px;
-            background-color: #fff;
-        }
+    .barcode-area {
+      text-align: center;
+      margin: 20px 0;
+    }
 
-        .section {
-            margin-bottom: 30px;
-        }
+    .barcode-img {
+      max-width: 100%;
+      height: auto;
+      max-height: 130px;
+      margin: 0 auto;
+      display: block;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 6px;
+      background: white;
+    }
 
-        .section-title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
+    .signature-box {
+      margin-top: 25px;
+    }
 
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
+    .signature-line {
+      border-top: 1px solid #94a3b8;
+      width: 200px;
+      margin-top: 10px;
+      padding-top: 4px;
+      font-size: 13px;
+      color: #475569;
+    }
 
-        .info-table td {
-            padding: 8px 12px;
-            vertical-align: top;
-        }
+    .signature-img {
+      height: 48px;
+      margin-top: 8px;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 6px;
+    }
 
-        .info-table td:first-child {
-            font-weight: bold;
-            width: 200px;
-            padding-right: 20px;
-        }
+    .footer {
+      background: #f1f5f9;
+      padding: 14px 30px;
+      font-size: 12px;
+      color: #64748b;
+      border-top: 1px solid #e2e8f0;
+    }
 
-        .info-table .note {
-            font-style: italic;
-            font-size: 14px;
-            margin-top: 5px;
-            color: #7f8c8d;
-        }
+    .btn-print {
+      display: inline-block;
+      background: #0056B3;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 10px;
+      cursor: pointer;
+    }
 
-        .paragraph {
-            margin-bottom: 15px;
-        }
-
-        .signature-area {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            align-items: flex-start;
-            gap: 30px;
-        }
-
-        .signature-box {
-            width: 45%;
-            text-align: left;
-        }
-
-        .signature-box p {
-            margin: 5px 0;
-            line-height: 1.4;
-        }
-
-        .signature-box .date-label {
-            font-weight: bold;
-        }
-
-        .signature-box .issuer-label {
-            font-weight: bold;
-            margin-top: 15px;
-        }
-
-        .ttd-box {
-            width: 45%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        .ttd-box .stempel {
-            width: 150px;
-            height: auto;
-            margin: 5px 0;
-        }
-
-        .ttd-box .signature {
-            width: 180px;
-            height: auto;
-            margin: 5px 0;
-        }
-
-        .ttd-box p {
-            font-size: 12px;
-            margin: 5px 0;
-        }
-
-        .barcode-box {
-            width: 45%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            margin-top: 20px;
-        }
-
-        .barcode-box img {
-            width: 180px;
-            height: auto;
-            margin: 10px 0;
-        }
-
-        .barcode-box p {
-            font-size: 12px;
-            margin: 5px 0;
-        }
-
-        .footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            text-align: center;
-            font-size: 14px;
-            color: #7f8c8d;
-        }
-
-        @media print {
-            body {
-                margin: 0;
-                padding: 0;
-                background-color: #fff;
-            }
-            .container {
-                padding: 0;
-            }
-            .tracking-section {
-                display: none;
-            }
-            .document-container {
-                margin: 0;
-                padding: 20mm;
-            }
-            body::before {
-                opacity: 0.03;
-            }
-        }
-    </style>
+    @media print {
+      body { background: white; padding: 0; }
+      .container { box-shadow: none; border-radius: 0; }
+      .no-print { display: none; }
+      .barcode-img { max-height: 150px; border: none; padding: 0; }
+      .signature-img { height: auto; max-height: 60px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <div class="logo-left">
-                <img src="https://i.ibb.co.com/gMrXmb5v/13c64ce30c396a9dd09550e88d684dd8.jpg" alt="Logo Direktorat Jenderal Pajak">
-            </div>
-            <div class="header-title">
-                <h1>PT SiCepat Ekspres Indonesia</h1>
-                <h2>Surat Jalan & Jaminan Pengiriman</h2>
-                <p>No. Dokumen: SJJP/EXP/2025/07/001</p>
-            </div>
-            <div class="logo-right">
-                <img src="https://i.ibb.co.com/Y7XzWv3y/IMG-20251215-113145.jpg" alt="Logo SiCepat Ekspres">
-            </div>
-        </div>
 
-        <!-- Interactive Tracking Section -->
-        <div class="tracking-section">
-            <form id="trackingForm" class="tracking-form">
-                <input type="text" id="resiInput" class="tracking-input" placeholder="Masukkan Nomor Resi (contoh: 001776527333)" required>
-                <button type="submit" class="tracking-button">Cek Resi</button>
-            </form>
-            <div id="trackingResult" class="tracking-result">
-                <h3 id="resultStatus">Status Pengiriman</h3>
-                <p id="resultMessage">Silakan masukkan nomor resi untuk memeriksa status pengiriman.</p>
-            </div>
-        </div>
-
-        <!-- Main Document -->
-        <div class="document-container">
-            <!-- Section 1: Informasi Pengiriman -->
-            <div class="section">
-                <div class="section-title">1. Informasi Pengiriman</div>
-                <table class="info-table">
-                    <tr>
-                        <td>Nomor Resi</td>
-                        <td>: 001776527333</td>
-                    </tr>
-                    <tr>
-                        <td>Nama Penerima</td>
-                        <td>: <span style="color: #3498db; font-weight: bold;">Andi M</span></td>
-                    </tr>
-                    <tr>
-                        <td>Alamat Lengkap</td>
-                        <td>: Dusun, 8 Wonosari, Gang Teratai, Desa Klumpang Kebun, Kec. Hamparan Perak, Kab. Deli Serdang, Sumatera Utara, 20374</td>
-                    </tr>
-                    <tr>
-                        <td>Jenis Barang</td>
-                        <td>: 20 slop rokok legal</td>
-                    </tr>
-                    <tr>
-                        <td>Pembayaran Barang</td>
-                        <td>: Cek tunai senilai Rp 3.640.000,00<br><span class="note">(Dana berasal dari pihak LEGALITAS sebagai pengembalian dana/refund kepada penerima)</span></td>
-                    </tr>
-                </table>
-            </div>
-
-            <!-- Section 2: Informasi Pembayaran Jaminan -->
-            <div class="section">
-                <div class="section-title">2. Informasi Pembayaran Jaminan</div>
-                <p class="paragraph">
-                    Pembayaran jaminan sebesar Rp 600.000,- dilakukan sebagai bentuk komitmen terhadap kelancaran dan keamanan pengiriman. Dana jaminan akan dikembalikan sepenuhnya setelah barang dinyatakan telah diterima di alamat tujuan sebagaimana tercantum dalam data pengiriman.
-                </p>
-            </div>
-
-            <!-- Section 3: Pernyataan Resmi -->
-            <div class="section">
-                <div class="section-title">3. Pernyataan Resmi</div>
-                <p class="paragraph">
-                    Dokumen ini diterbitkan secara resmi oleh PT SiCepat Ekspres Indonesia (Pusat) sebagai bukti sah pengiriman dan jaminan transaksi.
-                </p>
-                <p class="paragraph">
-                    Pembayaran jaminan dilakukan melalui barcode di bawah ini, yang terhubung langsung dengan sistem ekspedisi pusat.
-                </p>
-                <p class="paragraph">
-                    Demikian surat jalan ini dibuat untuk digunakan sebagaimana mestinya.
-                </p>
-            </div>
-
-            <!-- Signature and TTD Area -->
-            <div class="signature-area">
-                <div class="signature-box">
-                    <p class="date-label">Tanggal Terbit :</p>
-                    <p>Senin, 15 Desember 2025</p>
-                    <p class="issuer-label">Diterbitkan oleh :</p>
-                    <p>PT SiCepat Ekspres Indonesia - Kantor Pusat</p>
-                    <p>Jl. Akses Ekspedisi No. 123, Jakarta 11740</p>
-                </div>
-                <div class="ttd-box">
-                    <!-- Tanda Tangan -->
-                    <img src="https://i.ibb.co.com/ynksxBs2/IMG-20251215-115953.jpg" alt="Tanda Tangan Arif Kurniawan" class="signature">
-                    <p>Arif Kurniawan</p>
-                    <p>NIP. 19870311 201102 1 006</p>
-                </div>
-            </div>
-
-            <!-- Barcode Area -->
-            <div class="barcode-box">
-                <p>Silakan di-scan untuk proses dilanjutkan pengiriman</p>
-                <img src="https://i.ibb.co.com/1YHpJyM4/IMG-20251215-113809.jpg" alt="Barcode Pengiriman">
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>©2025 Dokumen ini bersifat resmi dan memiliki kekuatan hukum sebagai bukti pengiriman.</p>
-        </div>
+  <div class="container">
+    <div class="header">
+      <img src="https://i.ibb.co.com/s09pph3/perusahaan-layanan-pengiriman-barang-sicepat-di-mana-disebut-karyawan-220907074827-264.jpg" 
+           alt="Logo SiCepat Express" class="logo-img">
+      <div class="header-text">
+        <div class="logo-text">SI<span>CEPAT</span> EXPRESS</div>
+        <div class="tagline">Your Trusted Logistics Partner</div>
+        <div class="branch">Cabang Wonogiri | Jawa Tengah</div>
+      </div>
     </div>
 
-    <script>
-        document.getElementById('trackingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const resiInput = document.getElementById('resiInput').value.trim();
-            const trackingResult = document.getElementById('trackingResult');
-            const resultStatus = document.getElementById('resultStatus');
-            const resultMessage = document.getElementById('resultMessage');
+    <div class="content">
+      <h2 style="text-align:center; margin-bottom:20px; color:#1e293b;">BUKTI PENGIRIMAN & JAMINAN RESMI</h2>
 
-            // validasi dan pengecekan resi
-            if (resiInput === '001776527333') {
-                resultStatus.textContent = 'VERIFIKASI BERHASIL✓';
-                resultMessage.innerHTML = `
-                    <strong>Status:</strong> Transit - Siap Dikirim ke Alamat Tujuan<br>
-                    <strong>Keterangan:</strong> Proses Surat Jalan & Jaminan Pengiriman telah diselesaikan. Barang siap untuk dikirim ke alamat penerima: Dusun, 8 Wonosari, Gang Teratai, Desa Klumpang Kebun, Kec. Hamparan Perak, Kab. Deli Serdang, Sumatera Utara, 20374.
-                `;
-                trackingResult.classList.add('success');
-            } else {
-                resultStatus.textContent = '❌ RESI TIDAK DITEMUKAN';
-                resultMessage.textContent = 'Nomor resi yang Anda masukkan tidak valid atau belum terdaftar di sistem kami. Silakan periksa kembali nomor resi Anda.';
-                trackingResult.classList.remove('success');
-            }
-        });
-    </script>
+      <p style="text-align:center; font-size:14px; color:#64748b; margin-bottom:15px;">
+        <strong>Nomor Resi:</strong> <span style="font-family:monospace; font-weight:600;">001797569628</span>  
+        &nbsp;|&nbsp; 
+        <strong>Tanggal:</strong> 18 Desember 2025
+      </p>
+
+      <!-- Barcode asli -->
+      <div class="section-title">💳 Bukti Pembayaran Jaminan</div>
+      <div class="barcode-area">
+        <img src="https://i.ibb.co.com/xqJGjkX4/D-25121803892862.png" 
+             alt="Barcode Pembayaran Jaminan Rp150.000" class="barcode-img">
+        <p style="font-size:12px; color:#64748b; margin-top:6px;">
+          <strong>Scan untuk verifikasi pembayaran jaminan: Rp150.000</strong>
+        </p>
+      </div>
+
+      <div class="section-title">📦 Identitas Pengirim</div>
+      <table>
+        <tr><th>Nama</th><td><strong>SiCepat Express Cabang Wonogiri</strong></td></tr>
+        <tr><th>Alamat</th><td>Jl. Jend. Sudirman No. 45, Kel. Wonogiri, Kec. Wonogiri, Kab. Wonogiri, Jawa Tengah 57611</td></tr>
+        <tr><th>Kontak</th><td>(0273) 123456 | wonogiri@sicepat.com</td></tr>
+      </table>
+
+      <div class="section-title">📍 Identitas Penerima</div>
+      <table>
+        <tr><th>Nama Penerima</th><td><strong>Nada Maria</strong></td></tr>
+        <tr><th>Nomor HP</th><td>0853-2793-4352</td></tr>
+        <tr><th>Alamat Lengkap</th><td>Pandan RT.002/RW.013, Kel. Ngadirejo, Kec. Eromoko, Kab. Wonogiri, Jawa Tengah 57663</td></tr>
+      </table>
+
+      <div class="section-title">📦 Detail Pengiriman</div>
+      <table>
+        <tr><th>Deskripsi Barang</th><td>Rokok (5 slop / 1.000 batang)</td></tr>
+        <tr><th>Berat</th><td>1,5 kg</td></tr>
+        <tr><th>Layanan</th><td>SiCepat REG (Regular)</td></tr>
+        <tr><th>Status</th><td><span style="color:#e53e3e; font-weight:600;">WAJIB DISELESAIKAN</span></td></tr>
+      </table>
+
+      <div class="section-title">💰 Jaminan Pengiriman</div>
+      <table>
+        <tr><th>Jenis</th><td>Premium Security Guarantee (Internal)</td></tr>
+        <tr class="highlight"><th>Nominal</th><td class="amount">Rp 150.000</td></tr>
+        <tr><th>Ketentuan</th><td>
+          <ul style="padding-left:20px; margin:8px 0; font-size:13px;">
+            <li>Jaminan dibayarkan oleh <strong>Pengirim (SiCepat Wonogiri)</strong>.</li>
+            <li><strong>Rp100.000 dikembalikan</strong> setelah penerima mengonfirmasi barang sampai utuh.</li>
+            <li><strong>Rp50.000</strong> menjadi biaya administrasi & mitigasi risiko.</li>
+          </ul>
+        </td></tr>
+      </table>
+
+      <div class="note">
+        <strong>PERINGATAN:</strong> Proses jaminan <strong>harus diselesaikan maksimal 3×24 jam</strong> sejak barang diterima.
+      </div>
+
+      <div class="section-title">📝 Konfirmasi Penerimaan</div>
+      <table>
+        <tr><th width="30%">Nama Penerima</th><td>_________________________</td></tr>
+        <tr><th>Tanggal Terima</th><td>___ / ___ / 2025</td></tr>
+        <tr><th>Kondisi Barang</th><td>
+          <label style="display:block;"><input type="checkbox"> Sesuai & utuh</label>
+          <label style="display:block;"><input type="checkbox"> Rusak/tidak lengkap</label>
+        </td></tr>
+        <tr><th>Tanda Tangan</th><td><div class="signature-line">Penerima (Nada Maria)</div></td></tr>
+      </table>
+
+      <div class="signature-box">
+        <div style="float:left; width:48%;">
+          <div style="font-weight:500; font-size:13px; color:#4a5568;">Petugas Cabang Wonogiri</div>
+          <img src="https://i.ibb.co.com/1JZLB7zT/IMG-20251215-211405.jpg" 
+               alt="Tanda Tangan Petugas" class="signature-img">
+        </div>
+        <div style="float:right; width:48%; text-align:right;">
+          <div class="signature-line">Penerima (Nada Maria)</div>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>© 2025 SiCepat Express. All rights reserved.<br>
+      Dokumen internal — bukan pengganti resi resmi sistem SiCepat.<br>
+      Lacak resi: <a href="https://www.sicepat.com" target="_blank" style="color:#0056B3;">sicepat.com</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="no-print" style="text-align:center; margin-top:25px;">
+    <button class="btn-print" onclick="window.print()">🖨️ Cetak / Simpan sebagai PDF</button>
+  </div>
+
 </body>
-</html>
-
+</html>              
